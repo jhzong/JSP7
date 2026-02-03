@@ -12,11 +12,9 @@
 		<%
 			//전체불러오기
 			Cookie[] cookies = request.getCookies();
-				if(cookies != null){
-					for(Cookie cookie:cookies){
-						out.println(cookie.getName()+","+cookie.getValue()+"<br>");
-					}
-				}else out.println("데이터 없음");
+				for(Cookie cookie:cookies){
+					out.println(cookie.getName()+","+cookie.getValue()+"<br>");
+				}
 		%>
 		
 		<a href="./j02_03.jsp"><button>삭제</button></a>

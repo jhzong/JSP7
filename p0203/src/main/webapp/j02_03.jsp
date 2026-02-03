@@ -8,15 +8,20 @@
 	</head>
 	<body>
 		<h2>쿠키삭제</h2>
+		<!-- 쿠키출력 -->
 		<%
+			//전체불러오기
 			Cookie[] cookies = request.getCookies();
-			for(Cookie cookie:cookies){
-				cookie.setMaxAge(0);
-				response.addCookie(cookie);
-			}
-			out.println("모든쿠키 삭제완료");
+				for(Cookie cookie:cookies){
+					out.println(cookie.getName()+","+cookie.getValue()+"<br>");
+				}
 		%>
-		<br>		
+		<!-- 삭제 쿠키 선택 -->
+		<form action="./j02_04.jsp" method="post" name="frm">
+			<input type="text" name="cookie_key" placeholder="쿠키의 key값"><br>
+			<input type="submit" value="쿠키삭제하기">
+		</form>
+		
 		<a href="./j02_02.jsp"><button>쿠키확인</button></a>
 	</body>
 </html>

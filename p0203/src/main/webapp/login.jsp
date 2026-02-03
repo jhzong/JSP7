@@ -162,12 +162,23 @@
 		frm.submit();
 	}
   </script>
+  <%
+	String cook_id = "";
+	    Cookie[] cookies = request.getCookies();
+		for(Cookie cookie:cookies){
+			if(cookie.getName().equals("cook_id")){
+				cook_id = cookie.getName();
+			}
+		}
+  %>
   <div class="container">
     <div class="login-box">
       <h1>로그인</h1>
       <form action="/p0203/doLogin.jsp" method="post" name="frm">
-        <input type="text" name="id" placeholder="아이디" class="input-box" required>
+        <input type="text" name="id" value="<%=cook_id %>" placeholder="아이디" class="input-box" required>
         <input type="password" name="pw" placeholder="비밀번호" class="input-box" required>
+        <input type="checkbox" name="cook_save" value="ok" id="cook_save">
+        <label for="cook_save">아이디저장</label>
         <button type="button" onclick="loginBtn()" class="btn btn-login">로그인</button>
       </form>
       <div class="links">
